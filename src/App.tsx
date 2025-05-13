@@ -8,8 +8,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/admission" element={<AdmissionPage />} />
-          <Route path="/courses" element={<CourseDetailsPage />} />
+          {/* <Route path="/admission" element={<AdmissionPage />} />
+          <Route path="/courses" element={<CourseDetailsPage />} /> */}
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
       </main>
