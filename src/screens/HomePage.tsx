@@ -1,13 +1,52 @@
 'use client';
+import { Link } from 'react-router';
 import { useGoogleFont } from '../utils/fonts'
-
 
 export default function HomePage() {
   const montserrat = useGoogleFont('Montserrat')
   const openSans = useGoogleFont('Open Sans')
   
+  // Add animation styles
+  const animationStyles = `
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .animate-slideUp {
+      animation: slideUp 1s ease-out 0.5s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .animate-pulse {
+      animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+      }
+    }
+  `;
+  
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: openSans }}>
+      <style>{animationStyles}</style>
+      
       {/* Navigation Bar */}
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -34,34 +73,115 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section with Animation */}
-      <div className="relative bg-gradient-to-r from-blue-900 to-blue-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-blue-900 opacity-30"></div>
-          <div className="absolute -bottom-48 -left-24 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-          <div className="absolute top-48 -right-24 w-96 h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
-          <div className="absolute -top-48 left-48 w-96 h-96 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-2000"></div>
+      <div className="relative overflow-hidden" style={{ minHeight: "85vh" }}>
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+            backgroundPosition: "center 30%"
+          }}
+        ></div>
+        
+        {/* Advanced Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/85 to-blue-900/80 z-10"></div>
+        
+        {/* Animated Shapes in Background */}
+        <div className="absolute inset-0 z-20 overflow-hidden">
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 -right-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+          <div className="absolute -top-40 left-1/3 w-80 h-80 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-2000"></div>
         </div>
         
-        <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-tight" 
-              style={{ fontFamily: montserrat }}
-            >
-              Chhatrapati Sambhaji Maharaj ITI College
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
+        {/* Content Container */}
+        <div className="container mx-auto px-4 py-20 md:py-32 relative z-30 h-full flex items-center">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Main Heading with 3D Metallic Effect */}
+            <div className="mb-6 opacity-0 animate-fadeIn" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+              <h1 className="font-extrabold text-transparent text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight mb-2" 
+                style={{ 
+                  fontFamily: montserrat,
+                  background: "linear-gradient(to bottom right, #ffffff 10%, #d6d6d6 30%, #ffffff 50%, #a0a0a0 70%, #e7e7e7 90%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  textShadow: "0px 4px 12px rgba(0,0,0,0.5)",
+                  WebkitTextStroke: "1px rgba(100,100,100,0.1)",
+                  filter: "drop-shadow(0 4px 3px rgba(0,0,0,0.5))",
+                }}>
+                Chhatrapati Sambhaji Maharaj
+              </h1>
+              <div className="flex items-center justify-center">
+                <div className="h-0.5 w-12 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-3"></div>
+                <h2 className="text-yellow-400 text-3xl sm:text-4xl lg:text-5xl font-bold" 
+                  style={{ 
+                    fontFamily: montserrat,
+                    textShadow: "0 2px 10px rgba(250, 204, 21, 0.5), 0 0 30px rgba(250, 204, 21, 0.2)"
+                  }}>
+                  ITI College, Kandhar
+                </h2>
+                <div className="h-0.5 w-12 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-3"></div>
+              </div>
+            </div>
+            
+            {/* Tagline with Animation */}
+            <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fadeIn"
+              style={{
+                animationDelay: "0.5s", 
+                animationFillMode: "forwards",
+                textShadow: "0 2px 4px rgba(0,0,0,0.3)"
+              }}>
               Building careers through quality technical education and skill development
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/addmission" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transform transition-all hover:scale-105 shadow-lg cursor-pointer inline-block text-center">
-                Apply Now
-              </a>
-              <a href="/courses" className="bg-transparent hover:bg-blue-800 text-white border-2 border-white font-bold py-3 px-8 rounded-lg transform transition-all hover:scale-105 shadow-lg cursor-pointer inline-block text-center">
-                Explore Courses
-              </a>
+            
+            {/* CTA Buttons with Enhanced Animation */}
+            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8 opacity-0 animate-fadeIn"
+              style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
+              <Link 
+                to="/admission" 
+                className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-4 px-10 rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-400/30 hover:shadow-xl shadow-lg relative overflow-hidden group"
+              >
+                <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-yellow-300 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-blue-900 font-bold opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300">Apply Today!</span>
+                <span className="relative z-10 group-hover:opacity-0 transition-opacity duration-300">Apply Now</span>
+              </Link>
+              
+              <Link 
+                to="/courses" 
+                className="bg-transparent backdrop-blur-sm hover:bg-white/10 text-white border-2 border-white font-bold py-4 px-10 rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-white/20 hover:shadow-xl shadow-lg relative overflow-hidden group"
+              >
+                <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out opacity-10 group-hover:w-full"></span>
+                <span className="relative">Explore Courses</span>
+              </Link>
+            </div>
+            
+            {/* College Features */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-0 animate-fadeIn" 
+              style={{animationDelay: "1.1s", animationFillMode: "forwards"}}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                <div className="text-2xl font-bold text-yellow-400 mb-1">500+</div>
+                <div className="text-sm text-blue-100">Students Enrolled</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                <div className="text-2xl font-bold text-yellow-400 mb-1">95%</div>
+                <div className="text-sm text-blue-100">Placement Rate</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                <div className="text-2xl font-bold text-yellow-400 mb-1">20+</div>
+                <div className="text-sm text-blue-100">Expert Faculty</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                <div className="text-2xl font-bold text-yellow-400 mb-1">15+</div>
+                <div className="text-sm text-blue-100">Industry Partners</div>
+              </div>
             </div>
           </div>
+        </div>
+        
+        {/* Bottom Wave Shape */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 z-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-full">
+            <path fill="#f8fafc" fillOpacity="1" d="M0,224L80,208C160,192,320,160,480,165.3C640,171,800,213,960,218.7C1120,224,1280,192,1360,176L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+          </svg>
         </div>
       </div>
       
@@ -282,7 +402,6 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                   <input 
@@ -302,7 +421,6 @@ export default function HomePage() {
                     placeholder="Your message or inquiry"
                   ></textarea>
                 </div>
-                
                 <button 
                   type="submit" 
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer"
@@ -331,7 +449,6 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                
                 <div className="flex items-start">
                   <div className="bg-green-100 p-3 rounded-full mr-4 shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -345,7 +462,6 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                
                 <div className="flex items-start">
                   <div className="bg-yellow-100 p-3 rounded-full mr-4 shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -359,7 +475,6 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                
                 <div className="flex items-start">
                   <div className="bg-purple-100 p-3 rounded-full mr-4 shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -373,7 +488,6 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                
                 <div className="mt-8">
                   <div className="bg-gray-200 rounded-lg overflow-hidden h-64">
                     <iframe 
@@ -392,6 +506,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      
       {/* Testimonials Section */}
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4">
@@ -526,9 +641,9 @@ export default function HomePage() {
               </p>
             </div>
             <div>
-              <button className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer">
+              <Link to={"/admission"} className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer">
                 Apply Now
-              </button>
+              </Link>
             </div>
           </div>
         </div>
