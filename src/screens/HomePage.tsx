@@ -48,7 +48,7 @@ export default function HomePage() {
       <style>{animationStyles}</style>
       
       {/* Navigation Bar */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      {/* <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-blue-800" style={{ fontFamily: montserrat }}>
@@ -70,7 +70,7 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section with Animation */}
       <div className="relative overflow-hidden" style={{ minHeight: "85vh" }}>
@@ -136,22 +136,22 @@ export default function HomePage() {
             {/* CTA Buttons with Enhanced Animation */}
             <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8 opacity-0 animate-fadeIn"
               style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
-              <Link 
+              {/* <Link 
                 to="/admission" 
                 className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-4 px-10 rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-400/30 hover:shadow-xl shadow-lg relative overflow-hidden group"
               >
                 <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-yellow-300 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-blue-900 font-bold opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-4 transition-all duration-300">Apply Today!</span>
                 <span className="relative z-10 group-hover:opacity-0 transition-opacity duration-300">Apply Now</span>
-              </Link>
+              </Link> */}
               
-              <Link 
-                to="/courses" 
+              <a
+                href="#contact" 
                 className="bg-transparent backdrop-blur-sm hover:bg-white/10 text-white border-2 border-white font-bold py-4 px-10 rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-white/20 hover:shadow-xl shadow-lg relative overflow-hidden group"
               >
                 <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out opacity-10 group-hover:w-full"></span>
-                <span className="relative">Explore Courses</span>
-              </Link>
+                <span className="relative">Contact Us</span>
+              </a>
             </div>
             
             {/* College Features */}
@@ -307,11 +307,11 @@ export default function HomePage() {
             </div>
           </div>
           
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <a href="/courses" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer inline-block">
               View All Courses
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
       
@@ -364,7 +364,7 @@ export default function HomePage() {
       </section>
       
       {/* Contact and Information Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-100" id='contact'>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4" style={{ fontFamily: montserrat }}>
@@ -620,11 +620,11 @@ export default function HomePage() {
             </div>
           </div>
           
-          <div className="text-center mt-12">
-            <button className="bg-white text-blue-900 hover:bg-yellow-500 font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer">
-              Read More Success Stories
-            </button>
-          </div>
+            {/* <div className="text-center mt-12">
+              <button className="bg-white text-blue-900 hover:bg-yellow-500 font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer">
+                Read More Success Stories
+              </button>
+            </div> */}
         </div>
       </section>
       
@@ -640,11 +640,11 @@ export default function HomePage() {
                 Admissions are open for the new academic session. Apply now to secure your seat.
               </p>
             </div>
-            <div>
-              <Link to={"/admission"} className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer">
-                Apply Now
-              </Link>
-            </div>
+              {/* <div>
+                <Link to={"/admission"} className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer">
+                  Apply Now
+                </Link>
+              </div> */}
           </div>
         </div>
       </section>
@@ -741,6 +741,21 @@ export default function HomePage() {
                 <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Terms of Service</a>
                 <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Sitemap</a>
               </div>
+            </div>
+            
+            {/* Developer Credits */}
+            <div className="mt-6 pt-6 border-t border-gray-800 text-center">
+              <p className="text-gray-500 text-sm">
+                Developed and designed by{" "}
+                <a 
+                  href="https://devionx.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-yellow-400 transition-colors duration-300 font-medium"
+                >
+                  Devionx Technologies
+                </a>
+              </p>
             </div>
           </div>
         </div>

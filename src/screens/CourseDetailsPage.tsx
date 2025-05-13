@@ -374,10 +374,30 @@ export default function CourseDetailsPage() {
               &copy; {new Date().getFullYear()} Chhatrapati Sambhaji Maharaj ITI College. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="/index.html?screen=HomePage" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Back to Home</a>
+              <a href="/" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Back to Home</a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Contact Us</a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Privacy Policy</a>
             </div>
+          </div>
+          
+          {/* Developer Credits */}
+          <div className="mt-6 pt-6 border-t border-gray-700 text-center">
+            <p className="text-gray-500 text-sm">
+              Developed and designed by{" "}
+              <a 
+                href="https://devionx.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center group"
+              >
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-500 bg-clip-text text-transparent group-hover:from-yellow-400 group-hover:via-yellow-500 group-hover:to-yellow-400 font-medium transition-all duration-300">
+                  Devionx Technologies
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 ml-1 text-gray-400 group-hover:text-yellow-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </p>
           </div>
         </div>
       </footer>

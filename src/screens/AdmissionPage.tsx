@@ -574,9 +574,27 @@ export default function AdmissionPage() {
               &copy; {new Date().getFullYear()} Chhatrapati Sambhaji Maharaj ITI College. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="/index.html?screen=HomePage" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Back to Home</a>
+              <a href="/" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Back to Home</a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Contact Us</a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Privacy Policy</a>
+            </div>
+            
+            {/* Developer Credits */}
+            <div className="mt-6 pt-6 border-t border-gray-700 text-center">
+              <p className="text-gray-500 text-sm">
+                Developed and designed by{" "}
+                <a 
+                  href="https://devionx.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-yellow-400 transition-colors duration-300 font-medium relative group"
+                >
+                  <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent group-hover:from-yellow-400 group-hover:to-yellow-500 transition-all duration-300">
+                    Devionx Technologies
+                  </span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </p>
             </div>
           </div>
         </div>
