@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, AdmissionPage, CourseDetailsPage } from './screens';
+import { HomePage } from './screens';
 import './App.css';
 
 function App() {
