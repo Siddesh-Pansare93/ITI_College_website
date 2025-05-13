@@ -1,5 +1,5 @@
 'use client';
-import { Link } from 'react-router';
+
 import { useGoogleFont } from '../utils/fonts'
 
 export default function HomePage() {
@@ -110,6 +110,18 @@ export default function HomePage() {
                 }}>
                 Chhatrapati Sambhaji Maharaj
               </h1>
+              <h6 className="font-extrabold text-transparent text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight mb-2" 
+                style={{ 
+                  fontFamily: montserrat,
+                  background: "linear-gradient(to bottom right, #ffffff 10%, #d6d6d6 30%, #ffffff 50%, #a0a0a0 70%, #e7e7e7 90%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  textShadow: "0px 4px 12px rgba(0,0,0,0.5)",
+                  WebkitTextStroke: "1px rgba(100,100,100,0.1)",
+                  filter: "drop-shadow(0 4px 3px rgba(0,0,0,0.5))",
+                }}>
+                Private Industrial Training Institute
+              </h6>
               <div className="flex items-center justify-center">
                 <div className="h-0.5 w-12 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-3"></div>
                 <h2 className="text-yellow-400 text-3xl sm:text-4xl lg:text-5xl font-bold" 
@@ -117,7 +129,7 @@ export default function HomePage() {
                     fontFamily: montserrat,
                     textShadow: "0 2px 10px rgba(250, 204, 21, 0.5), 0 0 30px rgba(250, 204, 21, 0.2)"
                   }}>
-                  ITI College, Kandhar
+                  (ITI), Kandhar
                 </h2>
                 <div className="h-0.5 w-12 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-3"></div>
               </div>
@@ -746,14 +758,14 @@ export default function HomePage() {
             {/* Developer Credits */}
             <div className="mt-6 pt-6 border-t border-gray-800 text-center">
               <p className="text-gray-500 text-sm">
-                Developed and designed by{" "}
+                Designed and Developed by {" "}
                 <a 
                   href="https://devionx.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-yellow-400 transition-colors duration-300 font-medium"
                 >
-                  Devionx Technologies
+                  DevionX Technologies
                 </a>
               </p>
             </div>
