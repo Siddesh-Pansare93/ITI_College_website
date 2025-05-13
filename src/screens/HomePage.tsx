@@ -308,7 +308,7 @@ export default function HomePage() {
           </div>
           
           <div className="text-center mt-12">
-            <a href="/index.html?screen=CourseDetailsPage" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer inline-block">
+            <a href="/courses" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 cursor-pointer inline-block">
               View All Courses
             </a>
           </div>
